@@ -1,2 +1,6 @@
 # Ignore specific video file
-Lush\ Homepage\ Video.mp4
+#Lush\ Homepage\ Video.mp4
+
+# Ignore private key file
+LUSH-LAMP_SSH.ppk
+LightsailDefaultKey-us-east-1.pem
