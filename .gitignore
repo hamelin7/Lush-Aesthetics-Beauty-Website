@@ -4,3 +4,4 @@
 # Ignore private key file
 LUSH-LAMP_SSH.ppk
 LightsailDefaultKey-us-east-1.pem
+
