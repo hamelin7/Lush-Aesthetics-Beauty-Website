@@ -6,7 +6,7 @@
     <title>Lush Aesthetics & Beauty - Westfield, MA</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <style>
         /* Modern Luxury Design System */
         :root {
@@ -91,6 +91,13 @@
             letter-spacing: -0.02em;
         }
 
+        .logo .lush-cursive {
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            font-size: 2.5rem;
+            vertical-align: middle;
+        }
         .nav-menu {
             display: flex;
             list-style: none;
@@ -148,6 +155,14 @@
             overflow: hidden;
         }
 
+            /* Add black outline to all text in hero section */
+            /* Subtle black outline for hero text, excluding buttons */
+            .hero :not(.btn-primary):not(.btn-secondary):not(button) {
+                text-shadow:
+                    0 0 2px rgba(0,0,0,0.15),
+                    0 0 2px rgba(0,0,0,0.10);
+            }
+            
         .hero-video {
             position: absolute;
             top: 0;
@@ -164,12 +179,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /*background: linear-gradient(135deg, 
-                rgba(16, 16, 16, 0.7) 0%, 
-                rgba(212, 147, 154, 0.6) 40%, 
-                rgba(232, 180, 184, 0.4) 70%, 
-                rgba(237, 193, 122, 0.3) 100%);
-            z-index: 2;*/
+            background: linear-gradient(135deg, 
+                rgba(16, 16, 16, 0.15) 0%,
+                rgba(212, 147, 154, 0.10) 40%,
+                rgba(232, 180, 184, 0.08) 70%,
+                rgba(237, 193, 122, 0.06) 100%);
+            z-index: 2;
         }
 
         .hero::before {
@@ -722,7 +737,7 @@
     <!-- Header -->
     <header class="header">
         <nav class="nav-container">
-            <a href="#" class="logo">Lush <span style="color: var(--rose-pink);">|</span> Aesthetics <span style="color: var(--rose-pink);">&</span> Beauty</a>
+            <a href="#" class="logo"><span class="lush-cursive">Lush</span> <span style="color: var(--rose-pink);">|</span> Aesthetics <span style="color: var(--rose-pink);">&</span> Beauty</a>
             <ul class="nav-menu">
                 <li><a href="#services" class="nav-link">Services</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
