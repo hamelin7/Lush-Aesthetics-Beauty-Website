@@ -75,8 +75,9 @@
 
             /* Responsive: Hide Aesthetics & Beauty on mobile */
             @media (max-width: 600px) {
-                .header .logo .hide-mobile-beauty,
-                .header .logo .hide-mobile-and {
+                .header .logo .hide-mobile-aesthetics,
+                .header .logo .hide-mobile-and,
+                .header .logo .hide-mobile-beauty {
                     display: none !important;
                 }
             }
@@ -748,7 +749,11 @@
             <a href="#" class="logo">
                 <span class="lush-cursive">Lush</span>
                 <span style="color: var(--rose-pink);">|</span>
-                <span> Aesthetics <span class="hide-mobile-and" style="color: var(--rose-pink);">&</span> <span class="hide-mobile-beauty">Beauty</span></span>
+                <span>
+                    <span class="hide-mobile-aesthetics">Aesthetics</span>
+                    <span class="hide-mobile-and" style="color: var(--rose-pink);">&</span>
+                    <span class="hide-mobile-beauty">Beauty</span>
+                </span>
             </a>
             <ul class="nav-menu">
                 <li><a href="#services" class="nav-link">Services</a></li>
