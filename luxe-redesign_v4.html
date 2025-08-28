@@ -6,7 +6,7 @@
     <title>Lush Aesthetics & Beauty - Westfield, MA</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@400&display=swap" rel="stylesheet">
     <style>
         /* Modern Luxury Design System */
         :root {
@@ -66,12 +66,20 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            padding: var(--space-md) 0;
+            padding: var(--space-xs) 0;
             background: rgba(16, 16, 16, 0.98);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(27, 59, 54, 0.05);
             transition: var(--transition);
         }
+
+            /* Responsive: Hide Aesthetics & Beauty on mobile */
+            @media (max-width: 600px) {
+                .header .logo .hide-mobile-beauty,
+                .header .logo .hide-mobile-and {
+                    display: none !important;
+                }
+            }
 
         .nav-container {
             max-width: 1400px;
@@ -85,7 +93,7 @@
         .logo {
             font-family: var(--font-display);
             font-size: 2rem;
-            font-weight: 300;
+            font-weight: 400;
             color: var(--deep-forest);
             text-decoration: none;
             letter-spacing: -0.02em;
@@ -93,9 +101,9 @@
 
         .logo .lush-cursive {
             font-family: 'Dancing Script', cursive;
-            font-weight: 700;
+            font-weight: 300;
             letter-spacing: 0.02em;
-            font-size: 2.5rem;
+            font-size: 2.65rem;
             vertical-align: middle;
         }
         .nav-menu {
@@ -737,7 +745,11 @@
     <!-- Header -->
     <header class="header">
         <nav class="nav-container">
-            <a href="#" class="logo"><span class="lush-cursive">Lush</span> <span style="color: var(--rose-pink);">|</span> Aesthetics <span style="color: var(--rose-pink);">&</span> Beauty</a>
+            <a href="#" class="logo">
+                <span class="lush-cursive">Lush</span>
+                <span style="color: var(--rose-pink);">|</span>
+                <span> Aesthetics <span class="hide-mobile-and" style="color: var(--rose-pink);">&</span> <span class="hide-mobile-beauty">Beauty</span></span>
+            </a>
             <ul class="nav-menu">
                 <li><a href="#services" class="nav-link">Services</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
