@@ -80,6 +80,7 @@
                 .header .logo .hide-mobile-beauty {
                     display: none !important;
                 }
+                /* No rules for hiding About or Reviews links */
             }
 
         .nav-container {
@@ -697,6 +698,12 @@
         }
 
         /* Mobile Responsiveness */
+        @media (max-width: 980px) {
+            .nav-menu {
+                display: none !important;
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-menu {
                 display: none;
@@ -757,8 +764,8 @@
             </a>
             <ul class="nav-menu">
                 <li><a href="#services" class="nav-link">Services</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+                <li><a href="#about" class="nav-link hide-mobile-about">About</a></li>
+                <li><a href="#testimonials" class="nav-link hide-mobile-reviews">Reviews</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             <a href="#contact" class="cta-nav">Book Now</a>
@@ -1005,7 +1012,7 @@
                     <p>Sacramento's premier luxury beauty destination, where elegance meets expertise.</p>
                     <p>📍 123 Luxury Lane, Sacramento, CA 95814</p>
                     <p>📞 (916) 555-LUSH</p>
-                    <p>✉️ hello@lushaesthetics.com</p>
+                    <p>✉️ bookings@lushaesthetics.com</p>
                 </div>
                 
                 <div class="footer-section">
