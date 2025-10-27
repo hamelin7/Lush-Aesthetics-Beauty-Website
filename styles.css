@@ -102,7 +102,7 @@
 
         .logo .lush-cursive {
             font-family: 'Dancing Script', cursive;
-            font-weight: 300;
+            font-weight: 400;
             letter-spacing: 0.02em;
             font-size: 2.65rem;
             vertical-align: middle;
@@ -717,9 +717,10 @@
 
         .footer-section h3 {
             font-family: var(--font-display);
+            font-weight: 500;
             font-size: 1.3rem;
             margin-bottom: var(--space-md);
-            color: var(--forest-green);
+            color: #ffffff;
         }
 
         .footer-section p,
