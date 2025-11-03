@@ -47,13 +47,7 @@
                 header.style.boxShadow = 'none';
             }
         });
-
-    // Form submission: show alert on submit
-    document.querySelector('.contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your interest! We will contact you within 24 hours to confirm your appointment.');
-        });
-
+        
     // Floating elements animation enhancement: set delays/durations
     document.querySelectorAll('.floating-element').forEach((element, index) => {
             element.style.animationDelay = `${index * 2}s`;

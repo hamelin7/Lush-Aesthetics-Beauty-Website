@@ -801,3 +801,26 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+/* Cookie consent banner styles */
+#cookie-consent{
+    position:fixed;
+    left:16px;
+    right:16px;
+    bottom:16px;
+    background:#111;
+    color:#fff;
+    padding:1rem;
+    border-radius:10px;
+    box-shadow:0 6px 24px rgba(0,0,0,0.4);
+    display:flex;
+    gap:1rem;
+    align-items:center;
+    z-index:1200;
+}
+#cookie-consent p{margin:0;flex:1;font-size:0.95rem}
+#cookie-consent .cc-actions{display:flex;gap:0.5rem}
+#cookie-consent .btn{padding:0.5rem 0.75rem;border-radius:8px;border:0;cursor:pointer;font-weight:600}
+#cookie-consent .btn-accept{background:var(--gradient-luxury);color:#222}
+#cookie-consent .btn-decline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.12)}
+@media (min-width:980px){#cookie-consent{left:24px;right:auto;max-width:520px}}

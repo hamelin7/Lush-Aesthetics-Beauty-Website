@@ -4,15 +4,38 @@
 <html lang="en">
 <!-- Head section: meta, fonts, styles -->
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YMJL1XWJNS"></script>
+    <!-- Google tag (gtag.js) - load only with user consent -->
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    (function(){
+        const GA_ID = 'G-YMJL1XWJNS';
+        // Inject the gtag script and initialize
+        function injectGtag(){
+            if(window.gtagLoaded) return;
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+            document.head.appendChild(s);
 
-    gtag('config', 'G-YMJL1XWJNS');
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){ window.dataLayer.push(arguments); }
+            window.gtag = gtag;
+            gtag('js', new Date());
+            gtag('config', GA_ID);
+            window.gtagLoaded = true;
+        }
+
+        // Expose loader so consent banner can call it on accept
+        window.loadGtag = injectGtag;
+
+        // Auto-load if user previously accepted
+        try{
+            var consent = localStorage.getItem('cookie_consent');
+            if(consent === 'accepted') injectGtag();
+        }catch(e){ /* noop */ }
+    })();
     </script>
+
+    <!-- Cookie consent styles moved to styles.css -->
     <!-- Character encoding -->
     <meta charset="UTF-8">
     <!-- Responsive viewport -->
@@ -30,8 +53,6 @@
 </head>
 <!-- Body section starts -->
 <body>
-    <!-- ========================= -->
-    <!-- Header -->
     <!-- ========================= -->
     <!-- Main navigation header -->
     <header class="header">
@@ -360,8 +381,48 @@
     </footer>
 
 
+<!-- Cookie consent banner (injected near the end of the body) -->
+<div id="cookie-consent" role="dialog" aria-live="polite" aria-label="Cookie consent" style="display:none;">
+    <p>This website uses analytics to improve your experience. Please accept.</p>
+    <div class="cc-actions">
+        <button class="btn btn-decline" id="cc-decline">Decline</button>
+        <button class="btn btn-accept" id="cc-accept">Accept</button>
+    </div>
+</div>
+
 <!-- End of body -->
     <script src="index.js"></script>
+    <script>
+        // Cookie consent behavior: show banner if no choice, handle accept/decline
+        (function(){
+            var banner = document.getElementById('cookie-consent');
+            var accept = document.getElementById('cc-accept');
+            var decline = document.getElementById('cc-decline');
+
+            function hideBanner(){ if(banner) banner.style.display = 'none'; }
+            function showBanner(){ if(banner) banner.style.display = 'flex'; }
+
+            try{
+                var consent = localStorage.getItem('cookie_consent');
+                if(!consent){
+                    // show banner after a tiny delay so it doesn't block inline rendering
+                    window.addEventListener('load', function(){ setTimeout(showBanner, 300); });
+                }
+            }catch(e){ /* ignore storage errors */ }
+
+            accept && accept.addEventListener('click', function(){
+                try{ localStorage.setItem('cookie_consent', 'accepted'); }catch(e){}
+                // load analytics
+                if(window.loadGtag) try{ window.loadGtag(); }catch(e){}
+                hideBanner();
+            });
+
+            decline && decline.addEventListener('click', function(){
+                try{ localStorage.setItem('cookie_consent', 'denied'); }catch(e){}
+                hideBanner();
+            });
+        })();
+    </script>
 </body>
 <!-- End of HTML document -->
 </html>
