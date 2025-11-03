@@ -47,9 +47,39 @@
                 header.style.boxShadow = 'none';
             }
         });
-        
+
     // Floating elements animation enhancement: set delays/durations
     document.querySelectorAll('.floating-element').forEach((element, index) => {
             element.style.animationDelay = `${index * 2}s`;
             element.style.animationDuration = `${6 + index}s`;
         });
+
+    // Cookie consent behavior (currently disabled)
+    (function(){
+        var banner = document.getElementById('cookie-consent');
+        var accept = document.getElementById('cc-accept');
+        var decline = document.getElementById('cc-decline');
+
+        function hideBanner(){ if(banner) banner.style.display = 'none'; }
+        function showBanner(){ if(banner) banner.style.display = 'flex'; }
+
+        try{
+            var consent = localStorage.getItem('cookie_consent');
+            if(!consent){
+                // show banner after a tiny delay so it doesn't block inline rendering
+                window.addEventListener('load', function(){ setTimeout(showBanner, 300); });
+            }
+        }catch(e){ /* ignore storage errors */ }
+
+        accept && accept.addEventListener('click', function(){
+            try{ localStorage.setItem('cookie_consent', 'accepted'); }catch(e){}
+            // load analytics
+            if(window.loadGtag) try{ window.loadGtag(); }catch(e){}
+            hideBanner();
+        });
+
+        decline && decline.addEventListener('click', function(){
+            try{ localStorage.setItem('cookie_consent', 'denied'); }catch(e){}
+            hideBanner();
+        });
+    })();

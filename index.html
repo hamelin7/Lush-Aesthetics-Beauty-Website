@@ -4,8 +4,8 @@
 <html lang="en">
 <!-- Head section: meta, fonts, styles -->
 <head>
-    <!-- Google tag (gtag.js) - load only with user consent -->
-    <script>
+    <!-- Google tag (gtag.js) - load only with user consent(disabled for now) -->
+    <!--<script>
     (function(){
         const GA_ID = 'G-YMJL1XWJNS';
         // Inject the gtag script and initialize
@@ -33,9 +33,17 @@
             if(consent === 'accepted') injectGtag();
         }catch(e){ /* noop */ }
     })();
-    </script>
+    </script>-->
 
-    <!-- Cookie consent styles moved to styles.css -->
+    <!-- Google Analytics global site tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YMJL1XWJNS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-YMJL1XWJNS');
+    </script>
+    
     <!-- Character encoding -->
     <meta charset="UTF-8">
     <!-- Responsive viewport -->
@@ -382,48 +390,18 @@
     </footer>
 
 
-<!-- Cookie consent banner (injected near the end of the body) -->
-<div id="cookie-consent" role="dialog" aria-live="polite" aria-label="Cookie consent" style="display:none;">
+<!-- Cookie consent banner - injected at end of body (disabled for now) -->
+<!--<div id="cookie-consent" role="dialog" aria-live="polite" aria-label="Cookie consent" style="display:none;">
     <p>This website uses analytics to improve your experience</p>
     <div class="cc-actions">
-        <!--<button class="btn btn-decline" id="cc-decline">Decline</button>-->
+        <button class="btn btn-decline" id="cc-decline">Decline</button>
         <button class="btn btn-accept" id="cc-accept">OK</button>
     </div>
-</div>
+    </div>-->
 
 <!-- End of body -->
+
     <script src="index.js"></script>
-    <script>
-        // Cookie consent behavior: show banner if no choice, handle accept/decline
-        (function(){
-            var banner = document.getElementById('cookie-consent');
-            var accept = document.getElementById('cc-accept');
-            var decline = document.getElementById('cc-decline');
-
-            function hideBanner(){ if(banner) banner.style.display = 'none'; }
-            function showBanner(){ if(banner) banner.style.display = 'flex'; }
-
-            try{
-                var consent = localStorage.getItem('cookie_consent');
-                if(!consent){
-                    // show banner after a tiny delay so it doesn't block inline rendering
-                    window.addEventListener('load', function(){ setTimeout(showBanner, 300); });
-                }
-            }catch(e){ /* ignore storage errors */ }
-
-            accept && accept.addEventListener('click', function(){
-                try{ localStorage.setItem('cookie_consent', 'accepted'); }catch(e){}
-                // load analytics
-                if(window.loadGtag) try{ window.loadGtag(); }catch(e){}
-                hideBanner();
-            });
-
-            decline && decline.addEventListener('click', function(){
-                try{ localStorage.setItem('cookie_consent', 'denied'); }catch(e){}
-                hideBanner();
-            });
-        })();
-    </script>
 </body>
 <!-- End of HTML document -->
 </html>
