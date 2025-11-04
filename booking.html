@@ -1,0 +1,26 @@
+<!-- Booking page for Lush Aesthetics Beauty Website -->
+<!DOCTYPE html>
+<html lang="en">
+<!-- Head section: meta, fonts, styles -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book an Appointment - Lush Aesthetics & Beauty</title>
+    <!--<link rel="stylesheet" href="styles.css">-->
+</head>
+<!-- Body section starts -->
+<body style="height: 900px;">
+    <div id="appointment-widget" ></div>
+    <script>
+        // Initialize the Square Appointments widget
+        SquareAppointmentsWidget.init({
+            elementId: 'appointment-widget',
+            businessId: 'e8g3632jn81bhd',
+            locationId: 'LT6MH7KAMYYQ8'
+        });
+    </script>
+    <!-- Start Square Appointments Embed Code -->
+     <script src='https://square.site/appointments/buyer/widget/e8g3632jn81bhd/LT6MH7KAMYYQ8.js'></script>
+     <!-- End Square Appointments Embed Code -->
+</body>
+</html>
