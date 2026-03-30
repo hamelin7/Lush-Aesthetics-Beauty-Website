@@ -54,7 +54,7 @@
             element.style.animationDuration = `${6 + index}s`;
         });
 
-    // Cookie consent behavior (currently disabled)
+    // Cookie consent behavior — Consent Mode v2
     (function(){
         var banner = document.getElementById('cookie-consent');
         var accept = document.getElementById('cc-accept');
@@ -73,13 +73,68 @@
 
         accept && accept.addEventListener('click', function(){
             try{ localStorage.setItem('cookie_consent', 'accepted'); }catch(e){}
-            // load analytics
-            if(window.loadGtag) try{ window.loadGtag(); }catch(e){}
+            // Upgrade consent — GA will now set cookies and collect demographics
+            if(typeof gtag === 'function'){
+                gtag('consent', 'update', {
+                    'analytics_storage':    'granted',
+                    'ad_storage':           'granted',
+                    'ad_user_data':         'granted',
+                    'ad_personalization':   'granted'
+                });
+            }
             hideBanner();
         });
 
         decline && decline.addEventListener('click', function(){
             try{ localStorage.setItem('cookie_consent', 'denied'); }catch(e){}
+            // Explicitly deny — GA continues in cookieless/anonymous mode
+            if(typeof gtag === 'function'){
+                gtag('consent', 'update', {
+                    'analytics_storage':    'denied',
+                    'ad_storage':           'denied',
+                    'ad_user_data':         'denied',
+                    'ad_personalization':   'denied'
+                });
+            }
             hideBanner();
         });
+    })();
+
+    // ========================= //
+    // Testimonials Carousel      //
+    // ========================= //
+    (function() {
+        const cards = document.querySelectorAll('.testimonials-carousel .testimonial-card');
+        const dots = document.querySelectorAll('.carousel-dots .dot');
+        if (!cards.length) return;
+
+        let current = 0;
+        let autoTimer;
+
+        function showSlide(index) {
+            cards.forEach(c => c.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+            cards[index].classList.add('active');
+            dots[index].classList.add('active');
+            current = index;
+        }
+
+        function nextSlide() {
+            showSlide((current + 1) % cards.length);
+        }
+
+        function startAuto() {
+            autoTimer = setInterval(nextSlide, 6000);
+        }
+
+        // Dot click — jump to that review
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                showSlide(i);
+                clearInterval(autoTimer);
+                startAuto(); // restart timer
+            });
+        });
+
+        startAuto();
     })();
