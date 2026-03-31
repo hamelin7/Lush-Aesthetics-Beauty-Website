@@ -105,18 +105,33 @@
     // ========================= //
     (function() {
         const cards = document.querySelectorAll('.testimonials-carousel .testimonial-card');
-        const dots = document.querySelectorAll('.carousel-dots .dot');
+        const dots  = document.querySelectorAll('.carousel-dots .dot');
         if (!cards.length) return;
 
-        let current = 0;
+        let current     = 0;
         let autoTimer;
+        let isAnimating = false;
 
         function showSlide(index) {
-            cards.forEach(c => c.classList.remove('active'));
+            if (isAnimating || index === current) return;
+            isAnimating = true;
+
+            const outgoing = cards[current];
             dots.forEach(d => d.classList.remove('active'));
-            cards[index].classList.add('active');
             dots[index].classList.add('active');
-            current = index;
+
+            // Quick fade-out via .leaving class
+            outgoing.classList.add('leaving');
+            outgoing.classList.remove('active');
+
+            // After exit completes, drift the new card in slowly
+            setTimeout(() => {
+                outgoing.classList.remove('leaving');
+                cards.forEach(c => c.classList.remove('active'));
+                cards[index].classList.add('active');
+                current = index;
+                isAnimating = false;
+            }, 280);
         }
 
         function nextSlide() {
@@ -127,12 +142,12 @@
             autoTimer = setInterval(nextSlide, 6000);
         }
 
-        // Dot click — jump to that review
+        // Dot click — jump to that review and reset timer
         dots.forEach((dot, i) => {
             dot.addEventListener('click', () => {
                 showSlide(i);
                 clearInterval(autoTimer);
-                startAuto(); // restart timer
+                startAuto();
             });
         });
 

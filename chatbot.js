@@ -10,8 +10,24 @@ const chatbotData = [
         response: "We are located at 94 North Elm Street, Suite 301G, Westfield, MA 01085."
     },
     {
-        keywords: ["contact", "phone", "call", "email", "reach", "number", "touch"],
-        response: "You can reach us at (413) 580-6040 or email us at bookings@lushaesthetics.com."
+        keywords: ["phone", "call", "phone number", "give us a call", "dial"],
+        response: "Our phone number is (413) 580-6040. You can call us directly by tapping the button below:",
+        action: "call"
+    },
+    {
+        keywords: ["text", "sms", "message us", "text us", "send a text"],
+        response: "You can text us at (413) 580-6040. Tap the button below to start a text message:",
+        action: "text"
+    },
+    {
+        keywords: ["email", "email address", "send an email", "email us", "mail"],
+        response: "Our email address is bookings@lushaesthetics.com. Tap below to send us an email:",
+        action: "email"
+    },
+    {
+        keywords: ["contact", "reach", "get in touch", "touch", "reach out"],
+        response: "You can reach us by phone at (413) 580-6040 or email at bookings@lushaesthetics.com. Choose an option below:",
+        action: "contact"
     },
     {
         keywords: ["book", "appointment", "schedule", "reserve", "sign up"],
@@ -134,12 +150,33 @@ document.addEventListener("DOMContentLoaded", () => {
         msgDiv.textContent = text;
         chatBody.appendChild(msgDiv);
 
-        if (actionType === "fallback") {
+        if (actionType === "fallback" || actionType === "contact") {
             const actionsDiv = document.createElement("div");
             actionsDiv.className = "chatbot-actions";
             actionsDiv.innerHTML = `
                 <a href="tel:+14135806040" class="chatbot-action-btn">Call Us</a>
                 <a href="sms:+14135806040" class="chatbot-action-btn">Text Us</a>
+                <a href="mailto:bookings@lushaesthetics.com" class="chatbot-action-btn">Email Us</a>
+            `;
+            chatBody.appendChild(actionsDiv);
+        } else if (actionType === "call") {
+            const actionsDiv = document.createElement("div");
+            actionsDiv.className = "chatbot-actions";
+            actionsDiv.innerHTML = `
+                <a href="tel:+14135806040" class="chatbot-action-btn">Call (413) 580-6040</a>
+            `;
+            chatBody.appendChild(actionsDiv);
+        } else if (actionType === "text") {
+            const actionsDiv = document.createElement("div");
+            actionsDiv.className = "chatbot-actions";
+            actionsDiv.innerHTML = `
+                <a href="sms:+14135806040" class="chatbot-action-btn">Text (413) 580-6040</a>
+            `;
+            chatBody.appendChild(actionsDiv);
+        } else if (actionType === "email") {
+            const actionsDiv = document.createElement("div");
+            actionsDiv.className = "chatbot-actions";
+            actionsDiv.innerHTML = `
                 <a href="mailto:bookings@lushaesthetics.com" class="chatbot-action-btn">Email Us</a>
             `;
             chatBody.appendChild(actionsDiv);
