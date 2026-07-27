@@ -5,17 +5,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Google Analytics global site tag (gtag.js) -->
+        <!-- Google Consent Mode v2 — default denied, upgraded on user accept -->
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    var _savedConsent = 'denied';
+    try{ _savedConsent = localStorage.getItem('cookie_consent') === 'accepted' ? 'granted' : 'denied'; }catch(e){}
+    gtag('consent', 'default', {
+        'analytics_storage': _savedConsent, 'ad_storage': _savedConsent,
+        'ad_user_data': _savedConsent, 'ad_personalization': _savedConsent,
+        'functionality_storage': 'granted', 'security_storage': 'granted',
+        'wait_for_update': 500
+    });
+    </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YMJL1XWJNS"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){ dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-YMJL1XWJNS');
+    gtag('js', new Date());
+    gtag('config', 'G-YMJL1XWJNS');
     </script>
     <title>Book an Appointment - Lush Aesthetics & Beauty</title>
-    <link rel="stylesheet" href="chat-styles.css">
-    <!--<link rel="stylesheet" href="styles.css">-->
+    <link rel="stylesheet" href="chatbot.css">
 </head>
 <!-- Body section starts -->
 <body style="height: 900px;">
@@ -32,7 +41,7 @@
      <script src='https://square.site/appointments/buyer/widget/e8g3632jn81bhd/LT6MH7KAMYYQ8.js'></script>
      <!-- End Square Appointments Embed Code -->
      
-     <!-- Chat Widget -->
-     <script src="chat.js"></script>
+     <!-- Chatbot Widget -->
+     <script src="chatbot.js"></script>
 </body>
 </html>
