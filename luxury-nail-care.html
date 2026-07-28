@@ -1,32 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Google Consent Mode v2 — default denied, upgraded on user accept -->
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    var _savedConsent = 'denied';
-    try{ _savedConsent = localStorage.getItem('cookie_consent') === 'accepted' ? 'granted' : 'denied'; }catch(e){}
-    gtag('consent', 'default', {
-        'analytics_storage': _savedConsent, 'ad_storage': _savedConsent,
-        'ad_user_data': _savedConsent, 'ad_personalization': _savedConsent,
-        'functionality_storage': 'granted', 'security_storage': 'granted',
-        'wait_for_update': 500
-    });
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        var _savedConsent = 'denied';
+        try { _savedConsent = localStorage.getItem('cookie_consent') === 'accepted' ? 'granted' : 'denied'; } catch (e) { }
+        gtag('consent', 'default', {
+            'analytics_storage': _savedConsent, 'ad_storage': _savedConsent,
+            'ad_user_data': _savedConsent, 'ad_personalization': _savedConsent,
+            'functionality_storage': 'granted', 'security_storage': 'granted',
+            'wait_for_update': 500
+        });
     </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YMJL1XWJNS"></script>
     <script>
-    gtag('js', new Date());
-    gtag('config', 'G-YMJL1XWJNS');
+        gtag('js', new Date());
+        gtag('config', 'G-YMJL1XWJNS');
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Treat yourself to luxury nail care at Lush Aesthetics & Beauty. From Gel-X extensions and structured soft gel to our signature Lush Pedicure and custom nail art.">
+    <meta name="description"
+        content="Treat yourself to luxury nail care at Lush Aesthetics & Beauty. From Gel-X extensions and structured gel to our signature Lush Pedicure and custom nail art.">
     <title>Luxury Nail Care | Lush Aesthetics & Beauty</title>
     <link rel="icon" href="resources/images/lush-favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@400&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="chatbot.css">
     <style>
@@ -35,18 +39,22 @@
             background: linear-gradient(180deg, #F8F3EF 0%, #ffffff 100%);
             text-align: center;
             position: relative;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
             overflow: hidden;
         }
+
         .page-header::before {
             content: '';
             position: absolute;
-            top: 50%; left: 50%;
+            top: 50%;
+            left: 50%;
             transform: translate(-50%, -50%);
-            width: 500px; height: 500px;
-            background: radial-gradient(circle, rgba(232,180,184,0.08) 0%, transparent 70%);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(232, 180, 184, 0.08) 0%, transparent 70%);
             pointer-events: none;
         }
+
         .page-header .breadcrumb {
             font-family: var(--font-body);
             font-size: 0.8rem;
@@ -58,13 +66,22 @@
             opacity: 0;
             animation: fadeUp 0.6s ease forwards 0.1s;
         }
+
         .page-header .breadcrumb a {
             color: var(--soft-grey);
             text-decoration: none;
             transition: color 0.3s ease;
         }
-        .page-header .breadcrumb a:hover { color: var(--elegant-gold); }
-        .page-header .breadcrumb .sep { margin: 0 0.5rem; color: var(--rose-pink); }
+
+        .page-header .breadcrumb a:hover {
+            color: var(--elegant-gold);
+        }
+
+        .page-header .breadcrumb .sep {
+            margin: 0 0.5rem;
+            color: var(--rose-pink);
+        }
+
         .page-header h1 {
             font-family: var(--font-display);
             font-size: clamp(2.5rem, 5vw, 3.8rem);
@@ -76,6 +93,7 @@
             opacity: 0;
             animation: fadeUp 0.7s ease forwards 0.2s;
         }
+
         .page-header .header-divider {
             display: flex;
             align-items: center;
@@ -85,6 +103,7 @@
             max-width: 280px;
             position: relative;
         }
+
         .page-header .header-divider .line {
             flex: 1;
             height: 1px;
@@ -92,6 +111,7 @@
             transform: scaleX(0);
             animation: expandLine 0.8s ease forwards 0.5s;
         }
+
         .page-header .header-divider .diamond {
             width: 8px;
             height: 8px;
@@ -100,6 +120,7 @@
             flex-shrink: 0;
             animation: popDiamond 0.4s ease forwards 0.45s;
         }
+
         .page-header p {
             color: #5a5a5a;
             font-size: 1.05rem;
@@ -111,29 +132,106 @@
             opacity: 0;
             animation: fadeUp 0.7s ease forwards 0.7s;
         }
+
         @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(12px); }
-            to   { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
+
         @keyframes expandLine {
-            from { transform: scaleX(0); }
-            to   { transform: scaleX(1); }
+            from {
+                transform: scaleX(0);
+            }
+
+            to {
+                transform: scaleX(1);
+            }
         }
+
         @keyframes popDiamond {
-            from { transform: rotate(45deg) scale(0); }
-            to   { transform: rotate(45deg) scale(1); }
+            from {
+                transform: rotate(45deg) scale(0);
+            }
+
+            to {
+                transform: rotate(45deg) scale(1);
+            }
         }
-        .cat-title { font-family: var(--font-display); font-size: 2.2rem; margin-top: var(--space-3xl); margin-bottom: var(--space-lg); border-bottom: 2px solid var(--rose-pink); padding-bottom: 0.5rem; display: inline-block; color: #1a1a1a;}
-        .services-list { padding: var(--space-lg) 0 4rem 0; background: var(--cream); }
-        .service-list-item { background: #fff; padding: var(--space-xl); border-radius: var(--border-radius); margin-bottom: var(--space-lg); box-shadow: var(--shadow-subtle); display: flex; flex-direction: column; gap: var(--space-sm); border-left: 4px solid var(--elegant-gold); transition: var(--transition); }
-        .service-list-item:hover { transform: translateY(-3px); box-shadow: var(--shadow-medium); }
-        .service-list-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 10px;}
-        .service-list-header h3 { font-family: var(--font-display); font-size: 1.6rem; color: #1a1a1a; }
-        .service-list-price { font-weight: 600; color: var(--elegant-gold); font-size: 1.2rem; white-space: nowrap;}
-        .service-list-desc { color: #4a4a4a; line-height: 1.7; font-size: 0.95rem; }
-        .book-btn-wrap { margin-top: 1rem; }
+
+        .cat-title {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            margin-top: var(--space-3xl);
+            margin-bottom: var(--space-lg);
+            border-bottom: 2px solid var(--rose-pink);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+            color: #1a1a1a;
+        }
+
+        .services-list {
+            padding: var(--space-lg) 0 4rem 0;
+            background: var(--cream);
+        }
+
+        .service-list-item {
+            background: #fff;
+            padding: var(--space-xl);
+            border-radius: var(--border-radius);
+            margin-bottom: var(--space-lg);
+            box-shadow: var(--shadow-subtle);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+            border-left: 4px solid var(--elegant-gold);
+            transition: var(--transition);
+        }
+
+        .service-list-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .service-list-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .service-list-header h3 {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            color: #1a1a1a;
+        }
+
+        .service-list-price {
+            font-weight: 600;
+            color: var(--elegant-gold);
+            font-size: 1.2rem;
+            white-space: nowrap;
+        }
+
+        .service-list-desc {
+            color: #4a4a4a;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .book-btn-wrap {
+            margin-top: 1rem;
+        }
     </style>
 </head>
+
 <body>
     <header class="header">
         <nav class="nav-container">
@@ -141,8 +239,10 @@
                 <span class="lush-cursive">Lush</span>
                 <span style="color: var(--rose-pink);">|</span>
                 <span>
-                    <span class="hide-mobile-aesthetics" style="font-size:1.58125rem; vertical-align:middle;">Aesthetics</span>
-                    <span class="hide-mobile-and" style="color: var(--rose-pink); font-size:1.58125rem; vertical-align:middle;">&</span>
+                    <span class="hide-mobile-aesthetics"
+                        style="font-size:1.58125rem; vertical-align:middle;">Aesthetics</span>
+                    <span class="hide-mobile-and"
+                        style="color: var(--rose-pink); font-size:1.58125rem; vertical-align:middle;">&</span>
                     <span class="hide-mobile-beauty" style="font-size:1.58125rem; vertical-align:middle;">Beauty</span>
                 </span>
             </a>
@@ -157,23 +257,32 @@
     </header>
 
     <div class="page-header">
-        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep">/</span>Luxury Nail Care</nav>
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep">/</span>Luxury
+            Nail Care</nav>
         <h1>Luxury Nail Care</h1>
-        <div class="header-divider"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
-        <p>Enjoy flawless structured manicures, stunning Gel-X extensions, and relaxing pedicures with meticulous attention to detail and natural nail health.</p>
+        <div class="header-divider"><span class="line"></span><span class="diamond"></span><span class="line"></span>
+        </div>
+        <p>Enjoy flawless structured gel manicures, stunning Gel-X extensions, and relaxing pedicures with meticulous
+            attention to detail and natural nail health. </p>
+        <p style="margin-top: 10px;">All nail services are performed with sterilized tools using an autoclave and
+            disposable supplies to ensure
+            your protection from pathogenic infections.</p>
     </div>
 
     <section class="services-list fade-in">
         <div class="container">
             <h2 class="cat-title">Manicures & Extensions</h2>
-            
+
             <div class="service-list-item">
                 <div class="service-list-header">
-                    <h3>Structured Soft Gel Manicure</h3>
+                    <h3>Structured Gel Manicure</h3>
                     <div class="service-list-price">$65</div>
                 </div>
-                <div class="service-list-desc">Designed to support and protect your natural nails. Includes cuticle care, shaping, and a soft gel overlay that flexes with your nails, preventing breaking and chipping. (With removal: $75)</div>
-                <div class="book-btn-wrap"><a href="booking.html" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Book Now</a></div>
+                <div class="service-list-desc">Structured gel is designed to support and protect your natural nails.
+                    Featuring detailed Russian-style dry cuticle work, shaping, and a flawless gel overlay. This
+                    manicure offers long- lasting wear time of 4-5 weeks. (With removal: $75)</div>
+                <div class="book-btn-wrap"><a href="booking.html" class="btn-primary"
+                        style="padding: 0.5rem 1rem; font-size: 0.9rem;">Book Now</a></div>
             </div>
 
             <div class="service-list-item">
@@ -181,8 +290,10 @@
                     <h3>Gel-X Extensions (XS/S)</h3>
                     <div class="service-list-price">$85</div>
                 </div>
-                <div class="service-list-desc">Flawless, lightweight gel extensions for added length and durability. (M/L length: $90)</div>
-                <div class="book-btn-wrap"><a href="booking.html" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Book Now</a></div>
+                <div class="service-list-desc">Flawless, lightweight gel extensions for added length and durability.
+                    (M/L length: $90)</div>
+                <div class="book-btn-wrap"><a href="booking.html" class="btn-primary"
+                        style="padding: 0.5rem 1rem; font-size: 0.9rem;">Book Now</a></div>
             </div>
 
             <div class="service-list-item">
@@ -190,8 +301,10 @@
                     <h3>Gel Polish Manicure</h3>
                     <div class="service-list-price">$45</div>
                 </div>
-                <div class="service-list-desc">Includes nail shaping, cuticle care, and your choice of OPI gel color. (With removal: $55)</div>
-                <div class="book-btn-wrap"><a href="booking.html" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Book Now</a></div>
+                <div class="service-list-desc">Includes nail shaping, cuticle care, and your choice of OPI gel color.
+                    (With removal: $55)</div>
+                <div class="book-btn-wrap"><a href="booking.html" class="btn-primary"
+                        style="padding: 0.5rem 1rem; font-size: 0.9rem;">Book Now</a></div>
             </div>
 
             <div class="service-list-item">
@@ -199,30 +312,37 @@
                     <h3>The Lush Manicure</h3>
                     <div class="service-list-price">$35</div>
                 </div>
-                <div class="service-list-desc">Treat your hands to deep hydration. Includes shaping, cuticle care, and a warm honey butter wrap. Finished with normal polish.</div>
-                <div class="book-btn-wrap"><a href="booking.html" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Book Now</a></div>
+                <div class="service-list-desc">Treat your hands to deep hydration and softness with our Lush Manicure.
+                    Includes nail shaping, cuticle care, and a warm honey butter wrap to nourish and soothe skin.
+                    Finished with your choice of polish or paraffin treatment.</div>
+                <div class="book-btn-wrap"><a href="booking.html" class="btn-primary"
+                        style="padding: 0.5rem 1rem; font-size: 0.9rem;">Book Now</a></div>
             </div>
 
             <h2 class="cat-title">Pedicures</h2>
-            
+
             <div class="service-list-item">
                 <div class="service-list-header">
                     <h3>The Lush Pedicure</h3>
                     <div class="service-list-price">$59</div>
                 </div>
-                <div class="service-list-desc">Relax and refresh with a warm foot soak, nail trimming, cuticle care, exfoliation, and a soothing massage. Includes polish or paraffin treatment. Performed using a pipeless foot bath.</div>
-                <div class="book-btn-wrap"><a href="booking.html" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Book Now</a></div>
+                <div class="service-list-desc">Relax and refresh with a warm foot soak, nail trimming, cuticle care,
+                    exfoliation, and a soothing massage. Includes polish or paraffin treatment. Performed using a
+                    pipeless foot bath.</div>
+                <div class="book-btn-wrap"><a href="booking.html" class="btn-primary"
+                        style="padding: 0.5rem 1rem; font-size: 0.9rem;">Book Now</a></div>
             </div>
 
             <h2 class="cat-title">Nail Art & Add-Ons</h2>
-            
+
             <div class="service-list-item">
                 <div class="service-list-header">
                     <h3>Tier 1 Nail Art</h3>
                     <div class="service-list-price">$6+</div>
                 </div>
                 <div class="service-list-desc">Includes 2 simple accent nail designs (glitter, polka dots, etc).</div>
-                <div class="book-btn-wrap"><a href="booking.html" class="btn-primary" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Add to Booking</a></div>
+                <div class="book-btn-wrap"><a href="booking.html" class="btn-primary"
+                        style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Add to Booking</a></div>
             </div>
 
             <div class="service-list-item">
@@ -230,8 +350,10 @@
                     <h3>Tier 2 Nail Art</h3>
                     <div class="service-list-price">$15+</div>
                 </div>
-                <div class="service-list-desc">Includes French tips, solid chrome, cat eye gel, or 2 complex accent designs.</div>
-                <div class="book-btn-wrap"><a href="booking.html" class="btn-primary" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Add to Booking</a></div>
+                <div class="service-list-desc">Includes French tips, solid chrome, cat eye gel, or 2 complex accent
+                    designs.</div>
+                <div class="book-btn-wrap"><a href="booking.html" class="btn-primary"
+                        style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Add to Booking</a></div>
             </div>
 
             <div class="service-list-item">
@@ -239,17 +361,21 @@
                     <h3>Tier 3 Nail Art</h3>
                     <div class="service-list-price">$35+</div>
                 </div>
-                <div class="service-list-desc">Mixture of techniques: hand painted designs, ombré, layered designs, rhinestones, charms.</div>
-                <div class="book-btn-wrap"><a href="booking.html" class="btn-primary" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Add to Booking</a></div>
+                <div class="service-list-desc">Mixture of techniques: hand painted designs, ombré, layered designs,
+                    rhinestones, charms.</div>
+                <div class="book-btn-wrap"><a href="booking.html" class="btn-primary"
+                        style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Add to Booking</a></div>
             </div>
 
-             <div class="service-list-item">
+            <div class="service-list-item">
                 <div class="service-list-header">
                     <h3>Tier 4 Nail Art</h3>
                     <div class="service-list-price">Variable</div>
                 </div>
-                <div class="service-list-desc">Intricate designs on every nail. Encapsulated art, 2D/3D designs, heavy charms/rhinestones.</div>
-                <div class="book-btn-wrap"><a href="booking.html" class="btn-primary" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Add to Booking</a></div>
+                <div class="service-list-desc">Intricate designs on every nail. Encapsulated art, 2D/3D designs, heavy
+                    charms/rhinestones.</div>
+                <div class="book-btn-wrap"><a href="booking.html" class="btn-primary"
+                        style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Add to Booking</a></div>
             </div>
 
             <div class="service-list-item">
@@ -257,10 +383,12 @@
                     <h3>Nail Repair & Soak Off</h3>
                     <div class="service-list-price">Starts at $5</div>
                 </div>
-                <div class="service-list-desc">Repair a broken nail ($5) or perform a standalone soak off removal ($20).</div>
-                <div class="book-btn-wrap"><a href="booking.html" class="btn-primary" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Add to Booking</a></div>
+                <div class="service-list-desc">Repair a broken nail ($5) or perform a standalone soak off removal ($20).
+                </div>
+                <div class="book-btn-wrap"><a href="booking.html" class="btn-primary"
+                        style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Add to Booking</a></div>
             </div>
-            
+
         </div>
     </section>
 
@@ -268,34 +396,47 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-bottom">
-                <p>&copy; 2026 Lush Aesthetics & Beauty. All rights reserved. | <a href="cookie-policy.html" style="color: var(--rose-pink); text-decoration: none;">Cookie Policy</a></p>
+                <p>&copy; 2026 Lush Aesthetics & Beauty. All rights reserved. | <a href="cookie-policy.html"
+                        style="color: var(--rose-pink); text-decoration: none;">Cookie Policy</a></p>
             </div>
         </div>
     </footer>
     <!-- Cookie consent banner -->
     <div id="cookie-consent" role="dialog" aria-live="polite" aria-label="Cookie consent" style="display:none;">
-        <p>This website uses cookies to improve your experience. <a href="cookie-policy.html" style="color: var(--rose-pink); text-decoration: underline;">Learn more</a></p>
+        <p>This website uses cookies to improve your experience. <a href="cookie-policy.html"
+                style="color: var(--rose-pink); text-decoration: underline;">Learn more</a></p>
         <div class="cc-actions">
-            <button class="btn btn-secondary" id="cc-decline" style="font-size: 0.9rem; padding: 0.5rem 1rem;">Decline</button>
-            <button class="btn btn-primary" id="cc-accept" style="font-size: 0.9rem; padding: 0.5rem 1rem;">Accept</button>
+            <button class="btn btn-secondary" id="cc-decline"
+                style="font-size: 0.9rem; padding: 0.5rem 1rem;">Decline</button>
+            <button class="btn btn-primary" id="cc-accept"
+                style="font-size: 0.9rem; padding: 0.5rem 1rem;">Accept</button>
         </div>
     </div>
 
     <!-- Chatbot -->
     <div class="chatbot-container" id="chatbot-container">
         <button class="chatbot-toggler" id="chatbot-toggler">
-            <svg class="chatbot-toggler-icon" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2m0 14H6l-2 2V4h16z"/></svg>
-            <svg class="chatbot-close-icon" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+            <svg class="chatbot-toggler-icon" viewBox="0 0 24 24">
+                <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2m0 14H6l-2 2V4h16z" />
+            </svg>
+            <svg class="chatbot-close-icon" viewBox="0 0 24 24">
+                <path
+                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
+            </svg>
         </button>
         <div class="chatbot-window">
-            <div class="chatbot-header"><h3>Lush Assistant</h3></div>
+            <div class="chatbot-header">
+                <h3>Lush Assistant</h3>
+            </div>
             <div class="chatbot-body" id="chatbot-body">
                 <div class="chat-message bot">Hello! How can I help you today?</div>
             </div>
             <div class="chatbot-input-area">
                 <input type="text" id="chatbot-input" class="chatbot-input" placeholder="Type a message...">
                 <button id="chatbot-send" class="chatbot-send">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+                    </svg>
                 </button>
             </div>
         </div>
@@ -304,4 +445,5 @@
     <script src="index.js"></script>
     <script src="chatbot.js"></script>
 </body>
+
 </html>
