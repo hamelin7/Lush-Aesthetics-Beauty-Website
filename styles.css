@@ -1303,3 +1303,6 @@
     /* On phones, move the hero video control to the top right so the Call/Book bar and chat button don't cover it */
     .hero-video-toggle { top: 100px; right: 16px; bottom: auto; width: 40px; height: 40px; }
 }
+
+/* Keep featured images at their natural aspect ratio now that they carry width/height attributes */
+.article-featured-image { height: auto; }
