@@ -70,7 +70,7 @@ const chatbotData = [
     // ─── Service-Specific Routes ────────────────────────
     {
         keywords: ["facial", "facials", "skin", "skincare", "dermaplaning", "microcurrent", "chemical peel", "peel", "hydration", "anti-aging", "acne", "nano", "needling"],
-        response: "We offer custom facial treatments including our signature Hello Hydration Facial, Anti-Aging Facial, Microcurrent, Acne Facials, Dermaplaning, and Chemical Peels. Learn more or book a spot below:",
+        response: "We offer custom facial treatments including our signature Hello Hydration Facial, Anti-Aging Facial, Advanced Firming Microcurrent Facial, Soothing Comfort Facial, Dermaplaning, and Chemical Peels. Learn more or book a spot below:",
         action: "link",
         link: "facial-aesthetics.html",
         linkText: "Learn More about Facials"
