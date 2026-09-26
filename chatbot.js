@@ -3,16 +3,17 @@
 const BUSINESS_DATA = {
     phone: "(413) 580-6040",
     phoneHref: "+14135806040",
-    email: "bookings@lushaesthetics.com",
+    email: "bookings@lushaestheticsbeauty.com",
     address: "94 North Elm Street, Suite 301G, Westfield, MA 01085",
     instagram: "@lushaestheticsbeauty",
-    instagramUrl: "https://www.instagram.com/lushaestheticsbeauty"
+    instagramUrl: "https://www.instagram.com/lushaestheticsbeauty",
+    giftCardUrl: "https://app.squareup.com/gift/MLDV1H875JVCC/order"
 };
 
 const chatbotData = [
     {
         keywords: ["hour", "open", "close", "time", "schedule", "availability", "when"],
-        response: "We are open Tuesday 3PM–7PM, Wednesday & Thursday 9AM–4:30PM, Friday by appointment only, and Saturday 9AM–2PM. We are closed Sundays and Mondays."
+        response: "We are open Tuesday 3PM–7PM, Wednesday & Thursday 9AM–4:15PM, Friday by appointment only, and Saturday 9AM–2:15PM. We are closed Sundays and Mondays."
     },
     {
         keywords: ["location", "where", "address", "find", "directions", "located", "map"],
@@ -30,7 +31,7 @@ const chatbotData = [
     },
     {
         keywords: ["email", "email address", "send an email", "email us", "mail"],
-        response: "Our email address is bookings@lushaesthetics.com. Tap below to email us:",
+        response: "Our email address is bookings@lushaestheticsbeauty.com. Tap below to email us:",
         action: "email"
     },
     {
@@ -45,7 +46,7 @@ const chatbotData = [
     },
     {
         keywords: ["cancel", "reschedule", "policy", "late", "no show", "missed"],
-        response: "We kindly ask that you reschedule or cancel at least 24 hours before your appointment. If you do not arrive for your scheduled appointment, a charge of 50% of the service fee will apply."
+        response: "We kindly ask that you reschedule or cancel at least 24 hours before your appointment. If you do not arrive for your scheduled appointment, you will be charged 100% of your scheduled service(s). Full lash set appointments require a non-refundable $50 deposit, which is applied to your service total."
     },
     {
         keywords: ["service", "menu", "offer", "do you do", "treatments", "what do you", "options", "list", "info"],
@@ -67,10 +68,16 @@ const chatbotData = [
         followUp: false
     },
 
+    {
+        keywords: ["gift", "gift card", "giftcard", "gift certificate", "egift", "voucher"],
+        response: "Lush eGift cards make a beautiful gift and can be used toward any service. They're delivered by email. Tap below to choose an amount:",
+        action: "gift"
+    },
+
     // ─── Service-Specific Routes ────────────────────────
     {
         keywords: ["facial", "facials", "skin", "skincare", "dermaplaning", "microcurrent", "chemical peel", "peel", "hydration", "anti-aging", "acne", "nano", "needling"],
-        response: "We offer custom facial treatments including our signature Hello Hydration Facial, Anti-Aging Facial, Microcurrent, Acne Facials, Dermaplaning, and Chemical Peels. Learn more or book a spot below:",
+        response: "We offer custom facial treatments including our signature Hello Hydration Facial, Anti-Aging Facial, Advanced Firming Microcurrent Facial, Soothing Comfort Facial, Dermaplaning, and Chemical Peels. Learn more or book a spot below:",
         action: "link",
         link: "facial-aesthetics.html",
         linkText: "Learn More about Facials"
@@ -231,7 +238,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const actionsDiv = document.createElement("div");
             actionsDiv.className = "chatbot-actions";
             actionsDiv.innerHTML = `
-                <a href="mailto:${BUSINESS_DATA.email}" class="chatbot-action-btn">Email Us: bookings@lushaesthetics.com</a>
+                <a href="mailto:${BUSINESS_DATA.email}" class="chatbot-action-btn">Email Us: ${BUSINESS_DATA.email}</a>
             `;
             chatBody.appendChild(actionsDiv);
         } else if (actionType === "book") {
@@ -239,6 +246,13 @@ document.addEventListener("DOMContentLoaded", () => {
             actionsDiv.className = "chatbot-actions";
             actionsDiv.innerHTML = `
                 <a href="${pathPrefix}booking.html" class="chatbot-action-btn primary">Book Online Now</a>
+            `;
+            chatBody.appendChild(actionsDiv);
+        } else if (actionType === "gift") {
+            const actionsDiv = document.createElement("div");
+            actionsDiv.className = "chatbot-actions";
+            actionsDiv.innerHTML = `
+                <a href="${BUSINESS_DATA.giftCardUrl}" target="_blank" rel="noopener" class="chatbot-action-btn primary">Buy an eGift Card</a>
             `;
             chatBody.appendChild(actionsDiv);
         } else if (actionType === "link" && linkData) {

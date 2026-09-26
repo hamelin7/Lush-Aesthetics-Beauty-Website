@@ -336,17 +336,17 @@
 @media (max-width: 768px) {
     .chatbot-window {
         position: fixed; /* Decouples from relative wrapper box, uses full viewport context */
-        bottom: 88px;
+        bottom: 156px; /* clears the mobile Call/Book bar */
         right: 16px;
         left: 16px;
         width: auto;
         height: 480px;
-        max-height: calc(100vh - 120px);
+        max-height: calc(100vh - 190px);
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
     }
 
     .chatbot-container {
-        bottom: 16px;
+        bottom: calc(84px + env(safe-area-inset-bottom)); /* sits above the mobile Call/Book bar */
         right: 16px;
     }
 
