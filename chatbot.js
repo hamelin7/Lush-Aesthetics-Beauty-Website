@@ -45,7 +45,7 @@ const chatbotData = [
     },
     {
         keywords: ["cancel", "reschedule", "policy", "late", "no show", "missed"],
-        response: "We kindly ask that you reschedule or cancel at least 24 hours before your appointment. If you do not arrive for your scheduled appointment, a charge of 50% of the service fee will apply."
+        response: "We kindly ask that you reschedule or cancel at least 24 hours before your appointment. If you do not arrive for your scheduled appointment, you will be charged 100% of your scheduled service(s). Full lash set appointments require a non-refundable $50 deposit, which is applied to your service total."
     },
     {
         keywords: ["service", "menu", "offer", "do you do", "treatments", "what do you", "options", "list", "info"],
