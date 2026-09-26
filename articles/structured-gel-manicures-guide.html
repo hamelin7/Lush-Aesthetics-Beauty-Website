@@ -29,8 +29,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@400&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="../styles.css?v=2.2">
-    <link rel="stylesheet" href="../chatbot.css?v=2.1">
+    <link rel="stylesheet" href="../styles.css?v=2.3">
+    <link rel="stylesheet" href="../chatbot.css?v=2.2">
 
     <!-- Schema.org JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -198,6 +198,17 @@
         </div>
     </footer>
 
+    <!-- Mobile quick actions: Call / Book (shown at 768px and below) -->
+    <nav class="mobile-action-bar" aria-label="Call or book">
+        <a class="mab-call" href="tel:+14135806040">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 3.8h2.4l1.3 3.9-1.9 1.4a11.5 11.5 0 0 0 6.1 6.1l1.4-1.9 3.9 1.3v2.4a2 2 0 0 1-2.1 2A16.5 16.5 0 0 1 5 5.9a2 2 0 0 1 2-2.1z" /></svg>
+            <span>Call</span>
+        </a>
+        <a class="mab-book" href="../booking.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="5.5" width="16" height="14" rx="2" /><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4" /></svg>
+            <span>Book</span>
+        </a>
+    </nav>
     <script src="../chatbot.js"></script>
     <script src="../enhancements.js?v=1" defer></script>
 </body>

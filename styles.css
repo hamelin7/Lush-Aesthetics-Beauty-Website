@@ -1253,3 +1253,53 @@
 .hero-video-toggle .icon-play { display: none; }
 .hero-video-toggle[data-state="paused"] .icon-play { display: block; }
 .hero-video-toggle[data-state="paused"] .icon-pause { display: none; }
+
+
+/* ========================= */
+/* Mobile quick-action bar (Call / Book) */
+/* ========================= */
+.mobile-action-bar { display: none; }
+
+@media (max-width: 768px) {
+    .mobile-action-bar {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 9000;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+        background: rgba(14, 14, 16, 0.96);
+        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(12px);
+        border-top: 1px solid rgba(237, 193, 122, 0.25);
+    }
+    .mobile-action-bar a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 48px;
+        border-radius: 10px;
+        font-family: var(--font-body);
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+        text-decoration: none;
+    }
+    .mobile-action-bar a:focus-visible { outline: 2px solid #E8B4B8; outline-offset: 2px; }
+    .mobile-action-bar svg { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .mab-call { color: #EDC17A; border: 1px solid rgba(237, 193, 122, 0.6); background: transparent; }
+    .mab-book { color: #0E0E10; background: #E8B4B8; }
+
+    /* Keep page content, cookie banner and chat clear of the bar */
+    body { padding-bottom: calc(68px + env(safe-area-inset-bottom)); }
+    #cookie-consent { bottom: calc(80px + env(safe-area-inset-bottom)); }
+}
+
+@media (max-width: 768px) {
+    /* On phones, move the hero video control to the top right so the Call/Book bar and chat button don't cover it */
+    .hero-video-toggle { top: 100px; right: 16px; bottom: auto; width: 40px; height: 40px; }
+}
