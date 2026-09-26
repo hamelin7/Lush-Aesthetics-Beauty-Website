@@ -60,7 +60,7 @@
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@400&display=swap"
         rel="stylesheet">
     <!-- Main CSS Styles -->
-    <link rel="stylesheet" href="styles.css?v=2.1">
+    <link rel="stylesheet" href="styles.css?v=2.2">
     <link rel="stylesheet" href="chatbot.css?v=2.1">
     <!-- End of head section -->
 </head>
@@ -102,7 +102,7 @@
     <section class="hero">
         <!-- Background Video -->
         <!-- Cinematic video background -->
-        <video class="hero-video" autoplay muted loop playsinline>
+        <video class="hero-video" autoplay muted loop playsinline poster="resources/images/lush-homepage-poster.jpg">
             <source src="resources/videos/lush-homepage.webm" type="video/webm">
             <source src="resources/videos/lush-homepage.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -110,6 +110,12 @@
 
         <!-- Video Overlay -->
         <div class="hero-overlay"></div>
+
+        <!-- Pause/play control for the background video (WCAG 2.2.2) -->
+        <button class="hero-video-toggle" type="button" aria-label="Pause background video" data-state="playing">
+            <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 6.5v11M15 6.5v11" /></svg>
+            <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.5 6v12l9.5-6z" /></svg>
+        </button>
 
 
         <!-- Main hero content -->

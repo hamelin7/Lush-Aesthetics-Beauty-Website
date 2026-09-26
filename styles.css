@@ -1223,3 +1223,33 @@
     }
 }
 
+
+
+/* ========================= */
+/* Hero video pause/play control */
+/* ========================= */
+.hero-video-toggle {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    z-index: 5;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(237, 193, 122, 0.6);
+    background: rgba(14, 14, 16, 0.55);
+    color: #EDC17A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+.hero-video-toggle:hover { background: rgba(14, 14, 16, 0.8); border-color: #EDC17A; }
+.hero-video-toggle:focus-visible { outline: 2px solid #E8B4B8; outline-offset: 3px; }
+.hero-video-toggle svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+.hero-video-toggle .icon-play { display: none; }
+.hero-video-toggle[data-state="paused"] .icon-play { display: block; }
+.hero-video-toggle[data-state="paused"] .icon-pause { display: none; }

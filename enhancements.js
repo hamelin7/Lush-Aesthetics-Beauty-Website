@@ -1,11 +1,42 @@
 /* Lush Aesthetics & Beauty: site enhancements
- * - GA4 click events for booking, calls, email, directions and gift cards
+ * 1. Hero video pause/play control, with reduced-motion support
+ * 2. GA4 click events for booking, calls, email, directions and gift cards
  * Loaded with `defer` on every page except booking.html.
  */
 (function () {
     'use strict';
 
-    // ---------- GA4 click events ----------
+    // ---------- 1. Hero video control ----------
+    var video = document.querySelector('.hero-video');
+    var toggle = document.querySelector('.hero-video-toggle');
+
+    if (video && toggle) {
+        var setState = function (paused) {
+            toggle.setAttribute('data-state', paused ? 'paused' : 'playing');
+            toggle.setAttribute('aria-label', paused ? 'Play background video' : 'Pause background video');
+        };
+
+        var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+        if (reduceMotion && reduceMotion.matches) {
+            video.removeAttribute('autoplay');
+            video.pause();
+        }
+
+        setState(video.paused);
+
+        toggle.addEventListener('click', function () {
+            if (video.paused) {
+                var playing = video.play();
+                if (playing && playing.catch) { playing.catch(function () { setState(true); }); }
+            } else {
+                video.pause();
+            }
+        });
+        video.addEventListener('play', function () { setState(false); });
+        video.addEventListener('pause', function () { setState(true); });
+    }
+
+    // ---------- 2. GA4 click events ----------
     // Event names: book_click, call_click, text_click, email_click, directions_click, gift_card_click.
     // Add data-track="event_name" to any link to set its event explicitly.
     function eventFor(link) {
