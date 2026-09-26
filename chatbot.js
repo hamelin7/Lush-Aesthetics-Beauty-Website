@@ -3,7 +3,7 @@
 const BUSINESS_DATA = {
     phone: "(413) 580-6040",
     phoneHref: "+14135806040",
-    email: "bookings@lushaesthetics.com",
+    email: "bookings@lushaestheticsbeauty.com",
     address: "94 North Elm Street, Suite 301G, Westfield, MA 01085",
     instagram: "@lushaestheticsbeauty",
     instagramUrl: "https://www.instagram.com/lushaestheticsbeauty"
@@ -12,7 +12,7 @@ const BUSINESS_DATA = {
 const chatbotData = [
     {
         keywords: ["hour", "open", "close", "time", "schedule", "availability", "when"],
-        response: "We are open Tuesday 3PM–7PM, Wednesday & Thursday 9AM–4:30PM, Friday by appointment only, and Saturday 9AM–2PM. We are closed Sundays and Mondays."
+        response: "We are open Tuesday 3PM–7PM, Wednesday & Thursday 9AM–4:15PM, Friday by appointment only, and Saturday 9AM–2:15PM. We are closed Sundays and Mondays."
     },
     {
         keywords: ["location", "where", "address", "find", "directions", "located", "map"],
@@ -30,7 +30,7 @@ const chatbotData = [
     },
     {
         keywords: ["email", "email address", "send an email", "email us", "mail"],
-        response: "Our email address is bookings@lushaesthetics.com. Tap below to email us:",
+        response: "Our email address is bookings@lushaestheticsbeauty.com. Tap below to email us:",
         action: "email"
     },
     {
@@ -231,7 +231,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const actionsDiv = document.createElement("div");
             actionsDiv.className = "chatbot-actions";
             actionsDiv.innerHTML = `
-                <a href="mailto:${BUSINESS_DATA.email}" class="chatbot-action-btn">Email Us: bookings@lushaesthetics.com</a>
+                <a href="mailto:${BUSINESS_DATA.email}" class="chatbot-action-btn">Email Us: ${BUSINESS_DATA.email}</a>
             `;
             chatBody.appendChild(actionsDiv);
         } else if (actionType === "book") {
