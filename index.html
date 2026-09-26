@@ -63,6 +63,56 @@
     <link rel="stylesheet" href="styles.css?v=2.3">
     <link rel="stylesheet" href="chatbot.css?v=2.2">
     <!-- End of head section -->
+    <!-- Local business structured data (name, address, phone, hours) for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BeautySalon",
+      "@id": "https://lushaestheticsbeauty.com/#business",
+      "name": "Lush Aesthetics & Beauty",
+      "url": "https://lushaestheticsbeauty.com/",
+      "image": "https://lushaestheticsbeauty.com/resources/images/lush-sign-flower-wall.jpg",
+      "telephone": "+1-413-580-6040",
+      "email": "bookings@lushaestheticsbeauty.com",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "94 North Elm Street, Suite 301G",
+        "addressLocality": "Westfield",
+        "addressRegion": "MA",
+        "postalCode": "01085",
+        "addressCountry": "US"
+      },
+      "hasMap": "https://www.google.com/maps/search/?api=1&query=94+North+Elm+Street+Suite+301G+Westfield+MA+01085",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Tuesday",
+          "opens": "15:00",
+          "closes": "19:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Wednesday",
+            "Thursday"
+          ],
+          "opens": "09:00",
+          "closes": "16:15"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "14:15"
+        }
+      ],
+      "sameAs": [
+        "https://www.instagram.com/lushaestheticsbeauty",
+        "https://www.facebook.com/profile.php?id=61582901035978"
+      ]
+    }
+    </script>
 </head>
 <!-- Body section starts -->
 
