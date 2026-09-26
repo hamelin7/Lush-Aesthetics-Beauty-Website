@@ -6,7 +6,8 @@ const BUSINESS_DATA = {
     email: "bookings@lushaestheticsbeauty.com",
     address: "94 North Elm Street, Suite 301G, Westfield, MA 01085",
     instagram: "@lushaestheticsbeauty",
-    instagramUrl: "https://www.instagram.com/lushaestheticsbeauty"
+    instagramUrl: "https://www.instagram.com/lushaestheticsbeauty",
+    giftCardUrl: "https://app.squareup.com/gift/MLDV1H875JVCC/order"
 };
 
 const chatbotData = [
@@ -65,6 +66,12 @@ const chatbotData = [
         keywords: ["thank", "thanks", "appreciate", "awesome", "great", "perfect"],
         response: "You're very welcome! We look forward to seeing you at Lush.",
         followUp: false
+    },
+
+    {
+        keywords: ["gift", "gift card", "giftcard", "gift certificate", "egift", "voucher"],
+        response: "Lush eGift cards make a beautiful gift and can be used toward any service. They're delivered by email. Tap below to choose an amount:",
+        action: "gift"
     },
 
     // ─── Service-Specific Routes ────────────────────────
@@ -239,6 +246,13 @@ document.addEventListener("DOMContentLoaded", () => {
             actionsDiv.className = "chatbot-actions";
             actionsDiv.innerHTML = `
                 <a href="${pathPrefix}booking.html" class="chatbot-action-btn primary">Book Online Now</a>
+            `;
+            chatBody.appendChild(actionsDiv);
+        } else if (actionType === "gift") {
+            const actionsDiv = document.createElement("div");
+            actionsDiv.className = "chatbot-actions";
+            actionsDiv.innerHTML = `
+                <a href="${BUSINESS_DATA.giftCardUrl}" target="_blank" rel="noopener" class="chatbot-action-btn primary">Buy an eGift Card</a>
             `;
             chatBody.appendChild(actionsDiv);
         } else if (actionType === "link" && linkData) {
