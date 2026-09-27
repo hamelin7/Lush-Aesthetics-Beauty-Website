@@ -8,3 +8,6 @@ LightsailDefaultKey-us-east-1.pem
 
 # macOS Finder metadata
 .DS_Store
+
+# Working documents (keep out of the public site repo)
+Claude outputs/
