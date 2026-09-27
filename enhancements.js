@@ -1,6 +1,7 @@
 /* Lush Aesthetics & Beauty: site enhancements
  * 1. Hero video pause/play control, with reduced-motion support
- * 2. GA4 click events for booking, calls, email, directions and gift cards
+ * 2. Menu button that opens the navigation on tablets and phones
+ * 3. GA4 click events for booking, calls, email, directions and gift cards
  * Loaded with `defer` on every page except booking.html.
  */
 (function () {
@@ -36,7 +37,48 @@
         video.addEventListener('pause', function () { setState(true); });
     }
 
-    // ---------- 2. GA4 click events ----------
+    // On the homepage, let the phone layout hide the chat button while the hero is on screen
+    var hero = document.querySelector('.hero');
+    if (hero && 'IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+            document.body.classList.toggle('hero-in-view', entries[0].intersectionRatio > 0.35);
+        }, { threshold: [0, 0.35, 1] }).observe(hero);
+    }
+
+    // ---------- 2. Menu button (980px and below) ----------
+    var header = document.querySelector('.header');
+    var menuButton = document.querySelector('.nav-toggle');
+    var menu = document.getElementById('site-nav');
+
+    if (header && menuButton && menu) {
+        var isOpen = function () { return header.classList.contains('menu-open'); };
+        var setMenu = function (open, returnFocus) {
+            if (open) { header.style.setProperty('--header-h', header.offsetHeight + 'px'); }
+            header.classList.toggle('menu-open', open);
+            document.body.classList.toggle('menu-open', open);
+            menuButton.setAttribute('aria-expanded', open ? 'true' : 'false');
+            menuButton.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            if (open) {
+                var firstLink = menu.querySelector('a');
+                if (firstLink) { firstLink.focus({ preventScroll: true }); }
+            } else if (returnFocus) {
+                menuButton.focus({ preventScroll: true });
+            }
+        };
+
+        menuButton.addEventListener('click', function () { setMenu(!isOpen(), true); });
+        menu.addEventListener('click', function (event) {
+            if (event.target.closest('a') && isOpen()) { setMenu(false, false); }
+        });
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && isOpen()) { setMenu(false, true); }
+        });
+        window.addEventListener('resize', function () {
+            if (window.innerWidth > 980 && isOpen()) { setMenu(false, false); }
+        });
+    }
+
+    // ---------- 3. GA4 click events ----------
     // Event names: book_click, call_click, text_click, email_click, directions_click, gift_card_click.
     // Add data-track="event_name" to any link to set its event explicitly.
     function eventFor(link) {

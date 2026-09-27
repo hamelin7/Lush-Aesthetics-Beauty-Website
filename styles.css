@@ -1384,3 +1384,100 @@
     .header .logo .lush-cursive { font-size: 2.2rem; }
     .header .logo [class^="hide-mobile-"] { font-size: 1.3rem !important; }
 }
+
+/* ========================= */
+/* Menu button and slide-down menu (980px and below) */
+/* ========================= */
+.nav-toggle { display: none; }
+
+@media (max-width: 980px) {
+    .nav-container { gap: 12px; }
+    .cta-nav { margin-left: auto; }
+    .nav-toggle {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        border: 0;
+        border-radius: 50%;
+        background: transparent;
+        color: #F0DEC2;
+        cursor: pointer;
+    }
+    .nav-toggle:focus-visible { outline: 2px solid #E8B4B8; outline-offset: 2px; }
+    .nav-toggle-bar { display: block; width: 24px; height: 1.5px; border-radius: 2px; background: currentColor; transition: transform 0.25s ease, opacity 0.2s ease; }
+    .header.menu-open .nav-toggle-bar:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+    .header.menu-open .nav-toggle-bar:nth-child(2) { opacity: 0; }
+    .header.menu-open .nav-toggle-bar:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+    /* The open menu drops down from the header and fills the screen */
+    .header.menu-open .nav-menu {
+        display: flex !important;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        height: calc(100vh - var(--header-h, 84px));
+        height: calc(100dvh - var(--header-h, 84px));
+        flex-direction: column;
+        gap: 0;
+        padding: 8px 32px calc(96px + env(safe-area-inset-bottom));
+        background: #0E0E10;
+        border-top: 1px solid rgba(237, 193, 122, 0.2);
+        overflow-y: auto;
+        animation: lush-menu-in 0.2s ease-out;
+    }
+    .header.menu-open .nav-menu li { border-bottom: 1px solid rgba(237, 193, 122, 0.15); }
+    .header.menu-open .nav-link { display: block; padding: 18px 2px; font-family: var(--font-display); font-size: 1.6rem; color: #FDFBF9 !important; }
+    .header.menu-open .nav-link.active { color: #E8B4B8 !important; }
+    .header.menu-open .nav-link::after { display: none; }
+    body.menu-open { overflow: hidden; }
+    body.menu-open .chatbot-container { display: none; }
+}
+
+@keyframes lush-menu-in { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+    .header.menu-open .nav-menu { animation: none; }
+    .nav-toggle-bar { transition: none; }
+}
+
+/* ========================= */
+/* Phones: one booking button (the bottom bar), calmer hero */
+/* ========================= */
+@media (max-width: 768px) {
+    /* Header: menu button replaces Book Now; the bottom bar handles booking */
+    .cta-nav { display: none; }
+    .nav-toggle { margin-left: auto; }
+
+    /* Hero: drop the duplicate Book button, keep text clear of the header and bottom bar */
+    .hero-book { display: none; }
+    .hero {
+        min-height: 100vh;
+        min-height: 100svh;
+        padding-top: 120px;
+        padding-bottom: calc(100px + env(safe-area-inset-bottom));
+    }
+    .hero-content { margin-top: 0; }
+    .hero-title { font-size: clamp(2.6rem, 11.5vw, 3rem); }
+    .hero-video-toggle { top: 100px; right: 16px; bottom: auto; width: 36px; height: 36px; }
+
+    /* Bottom bar Book button matches the gold booking buttons used everywhere else */
+    .mab-book { color: #0E0E10; background: var(--gradient-luxury); }
+
+    /* Center the remaining hero button's label */
+    .hero-cta-group a { text-align: center; }
+
+    /* Chat button: a little smaller on phones, and hidden while the homepage hero is on screen */
+    .chatbot-toggler { width: 52px; height: 52px; }
+    .chatbot-container { transition: opacity 0.25s ease, transform 0.25s ease; }
+    body.hero-in-view .chatbot-container:not(.open) { opacity: 0; transform: translateY(8px); pointer-events: none; }
+}
+
+/* Small phones show only "Lush" in the logo, so hide the divider too */
+@media (max-width: 600px) {
+    .header .logo > span:nth-of-type(2) { display: none; }
+}

@@ -60,7 +60,7 @@
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@400&display=swap"
         rel="stylesheet">
     <!-- Main CSS Styles -->
-    <link rel="stylesheet" href="styles.css?v=2.6">
+    <link rel="stylesheet" href="styles.css?v=2.7">
     <link rel="stylesheet" href="chatbot.css?v=2.2">
     <!-- End of head section -->
     <!-- Local business structured data (name, address, phone, hours) for Google -->
@@ -135,7 +135,7 @@
                 </span>
             </a>
             <!-- Navigation links -->
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="site-nav">
                 <li><a href="index.html#services" class="nav-link">Services</a></li>
                 <li><a href="articles.html" class="nav-link">Articles</a></li>
                 <li><a href="index.html#about" class="nav-link hide-mobile-about">About</a></li>
@@ -145,6 +145,12 @@
             </ul>
             <!-- Book Now button -->
             <a href="booking.html" class="cta-nav">Book Now</a>
+            <!-- Menu button (tablet and phone) -->
+            <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
         </nav>
     </header>
 
@@ -183,7 +189,7 @@
             </p>
             <!-- Hero call-to-action buttons -->
             <div class="hero-cta-group">
-                <a href="booking.html" class="btn-primary">Book Your Experience</a>
+                <a href="booking.html" class="btn-primary hero-book">Book Your Experience</a>
                 <a href="#services" class="btn-secondary">Explore Services</a>
             </div>
             <!-- Gift card text link -->
@@ -619,7 +625,7 @@
     </nav>
     <script src="index.js"></script>
     <script src="chatbot.js"></script>
-    <script src="enhancements.js?v=1" defer></script>
+    <script src="enhancements.js?v=2" defer></script>
 </body>
 <!-- End of HTML document -->
 
