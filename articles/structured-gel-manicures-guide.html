@@ -29,7 +29,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@400&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="../styles.css?v=2.6">
+    <link rel="stylesheet" href="../styles.css?v=2.7">
     <link rel="stylesheet" href="../chatbot.css?v=2.2">
 
     <!-- Schema.org JSON-LD Structured Data -->
@@ -99,7 +99,7 @@
                     <span class="hide-mobile-beauty" style="font-size:1.58125rem; vertical-align:middle;">Beauty</span>
                 </span>
             </a>
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="site-nav">
                 <li><a href="../index.html#services" class="nav-link">Services</a></li>
                 <li><a href="../articles.html" class="nav-link active" style="color: var(--rose-pink);">Articles</a></li>
                 <li><a href="../index.html#about" class="nav-link hide-mobile-about">About</a></li>
@@ -108,6 +108,12 @@
                 <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
             </ul>
             <a href="../booking.html" class="cta-nav">Book Now</a>
+            <!-- Menu button (tablet and phone) -->
+            <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
         </nav>
     </header>
 
@@ -212,6 +218,6 @@
         </a>
     </nav>
     <script src="../chatbot.js"></script>
-    <script src="../enhancements.js?v=1" defer></script>
+    <script src="../enhancements.js?v=2" defer></script>
 </body>
 </html>
